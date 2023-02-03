@@ -1,0 +1,160 @@
+body {
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	background: white;
+	overflow-x: hidden;
+}
+
+.columns {
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	max-width: 90vw;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.Server-time,
+.Client-time {
+	margin: 20px 0;
+}
+
+h1,
+h2 {
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+p {
+	margin-top: 0;
+	font-size: 5vw;
+	font-weight: 900;
+}
+
+h1 {
+	width: fit-content;
+	font-size: 5vw;
+	margin-top: 0;
+}
+
+/* Loading screen */
+.loading {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgb(22, 22, 22);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Dark Mode */
+.Dm-container {
+	margin-bottom: 55px;
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+}
+
+.Dm-container-vert {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+button {
+	background: none;
+	border: none;
+	font-size: 4vw;
+	position: relative;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+.columns.light {
+	background-color: #fff;
+	color: #000;
+}
+
+.columns.dark {
+	background-color: #0b0b0b;
+	color: #fff;
+	height: 100vh;
+}
+
+button:hover .hidden {
+	display: block !important;
+}
+
+.hidden {
+	display: none;
+	font-size: 14px;
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+}
+
+.dark button:hover .hidden {
+	color: #fff;
+}
+
+.Timings {
+	padding: 60px;
+	box-shadow: 10px 10px 25px 5px #d9d6d6;
+	border-radius: 20px;
+	width: 50%;
+	margin: 0 50px 3% 0;
+}
+
+.dark .Timings {
+	box-shadow: 10px 10px 25px 5px #000000;
+}
+
+.App-intro {
+	margin-bottom: 20px;
+}
+
+li {
+	list-style: none;
+	margin: 0 10px;
+}
+
+ul {
+	margin-top: 0;
+	padding: 0;
+	display: flex;
+}
+
+a {
+	text-decoration: none;
+}
+.Content-wrapper {
+	display: flex;
+}
+
+pre {
+	width: 100%;
+	height: 600px;
+	overflow: scroll;
+	overflow-x: clip;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+.dark a {
+	color: #fff;
+}
+a {
+	color: #000;
+}
