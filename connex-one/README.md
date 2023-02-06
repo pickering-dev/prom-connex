@@ -21,9 +21,7 @@ Response time can be seen in the terminal as requests are made.
 In order to switch to dark mode click the moon icon found at the top right of the page.
 The default theme is 'light'.
 
-<!-- Reset -->
-
-To reset the count, refresh the page or terminate the node process using 'ctrl + c > (y)' followed by npm start.
+![image](https://user-images.githubusercontent.com/92154991/216858774-68d6fcbf-6fcb-4cdf-acb1-d8328ff451f2.png)
 
 <!-- Built With -->
 
@@ -36,3 +34,5 @@ To reset the count, refresh the page or terminate the node process using 'ctrl +
 - [React Count Up](https://www.npmjs.com/package/react-countup) - Frontend counter
 - [React Switch](https://www.npmjs.com/package/react-switch) - Frontend switch
 - [Moment](https://www.npmjs.com/package/moment) - Frontend date
+
+![image](https://user-images.githubusercontent.com/92154991/216858689-f57b2f63-b7b9-41d2-a17a-757cc429ac5d.png)
