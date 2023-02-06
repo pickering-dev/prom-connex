@@ -11,7 +11,7 @@ class App extends Component {
 			difference: 0,
 			loading: true,
 			loadingTime: new Date().getTime(),
-			theme: "light", // set the initial theme to light
+			theme: "dark", // set the initial theme to dark
 		};
 	}
 
@@ -38,40 +38,43 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		fetch("http://localhost:9000/metrics", { timeout: 3000 })
-			.then((res) => {
-				if (!res.ok) {
-					throw new Error(res.statusText);
-				}
-				return res.text();
-			})
-			.then((res) => {
-				// Extract the process start time from the Prometheus text format response
-				const processStartTimeSeconds =
-					/process_start_time_seconds ([\d.]+)/.exec(res)[1];
-
-				// Convert the process start time from epoch seconds to a date string
-				// const processStartTime = new Date(
-				// 	processStartTimeSeconds * 1000
-				// ).toLocaleString();
-
-				this.setState({ processStartTimeSeconds });
-			})
-			.catch((error) => {
-				console.error(error);
-				this.setState({ loading: false });
-			});
-		this.callAPI();
-		this.setState({
-			clientTime: new Date().toLocaleTimeString(),
-		});
 		setInterval(() => {
+			fetch("http://localhost:9000/metrics", { timeout: 3000 })
+				.then((res) => {
+					if (!res.ok) {
+						throw new Error(res.statusText);
+					}
+					return res.text();
+				})
+				.then((res) => {
+					// Extract the process start time from the Prometheus text format response
+					const processStartTimeSeconds =
+						/process_start_time_seconds ([\d.]+)/.exec(res)[1];
+					this.setState({ processStartTimeSeconds });
+				})
+				.catch((error) => {
+					console.error(error);
+					this.setState({ loading: false });
+				});
+			this.callAPI();
+			this.setState({
+				clientTime: new Date().toLocaleTimeString(),
+			});
+
 			this.setState({
 				clientTime: new Date().toLocaleTimeString(),
 				difference: this.state.difference + 1000,
 			});
 		}, 1000);
 	}
+
+	// Dark mode toggle
+	toggleTheme = () => {
+		this.setState({
+			theme: this.state.theme === "light" ? "dark" : "light",
+		});
+	};
+
 	//  Format 'difference' to display as HH:MM:SS:MS
 	formatStopwatch(ms) {
 		if (isNaN(ms)) return "--";
@@ -87,19 +90,13 @@ class App extends Component {
 		return `${hours}:${minutes}:${seconds}:${milliseconds}`;
 	}
 
-	toggleTheme = () => {
-		this.setState({
-			theme: this.state.theme === "light" ? "dark" : "light",
-		});
-	};
-
 	render() {
 		const currentTime = new Date().getTime();
 		const loadingTime = this.state.loadingTime;
 		const elapsedTime = currentTime - loadingTime;
 
 		// Loading screen based on time taken to fetch data
-		if (this.state.loading && elapsedTime < 1000) {
+		if (this.state.loading && elapsedTime < 3000) {
 			return <div className="loading">Loading...</div>;
 		}
 

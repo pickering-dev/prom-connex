@@ -13,12 +13,8 @@ If 'MOST RECENT SERVER TIME' shows no results please follow 'API Startup' and re
 
 <!-- API Startup -->
 
-Download repo > cd 'server' > npm start > http://localhost:9090/metricAPI
-This will then return server time in epoch seconds at the time of page load.
-Express is located at http://localhost:9090
-To view Prometheus metrics http://localhost:9090/metrics
+Download repo > cd 'server' > npm start > http://localhost:9000/metrics
 Response time can be seen in the terminal as requests are made.
-Due to the speed of these requests the 'loading' screen may only show for less than 1 millisecond (0.4 to 0.8ms) whilst the API process is running .
 
 <!-- Dark Mode -->
 
